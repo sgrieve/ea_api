@@ -16,7 +16,7 @@ with open(json_path) as f:
     measurements = json.load(f)
 
 # After loading the json data from yesterday, back it up, overwriting previous backup
-os.replace('{}.json'.format(measurement_id), '{}.json.bak'.format(measurement_id))
+os.replace(json_path, '{}.bak'.format(json_path))
 
 root = 'http://environment.data.gov.uk/flood-monitoring'
 
