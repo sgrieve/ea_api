@@ -1,9 +1,9 @@
 ### Gauges being processed
 
-Chesham: 2852TH-level-stage-i-15_min-mASD
-Rickmansworth: 2859TH-level-downstage-i-15_min-mASD
-Rickmansworth: 2859TH-level-stage-i-15_min-mASD
-Unnamed: 278744TP-rainfall-tipping_bucket_raingauge-t-15_min-mm
+- Chesham: 2852TH-level-stage-i-15_min-mASD
+- Rickmansworth: 2859TH-level-downstage-i-15_min-mASD
+- Rickmansworth: 2859TH-level-stage-i-15_min-mASD
+- Unnamed: 278744TP-rainfall-tipping_bucket_raingauge-t-15_min-mm
 
 
 ### Notes
