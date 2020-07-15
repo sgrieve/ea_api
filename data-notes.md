@@ -33,6 +33,8 @@ At this page I can download Fish and Ecology data that is tagged to the Chess: h
 
 No obvious API so will likely be a 1 off processing job for the historic data rather than a live update.
 
+- Paul can advise on this
+
 ### Environment Agency Water Quality
 
 Not sure if these data are of interest: https://environment.data.gov.uk/water-quality/view/doc/reference
@@ -41,11 +43,21 @@ Found data for a Chess associated sample point with data going back to 2000: htt
 
 Can grab this via the water quality API if we can identify all of the relevant sample stations.
 
+- Kate to outline water quality narrative
+
 ### Riverfly
 
 Seems to be data going back at least a decade for the River Chess. No API that I can see, but data is rarely updated? Can download all of the data to excel format from here: https://www.riverflies.org/open-data
 
 - Need to identify what data we want to process out and how to include it in the story map
+
+- Alan helps with narrative
+
+
+### Earthwatch fresh water blitz
+
+- Investigate this
+- Source of Nitrate data
 
 
 ## Challenges/Questions
