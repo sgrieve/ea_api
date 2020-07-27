@@ -4,9 +4,13 @@ import requests
 import json
 from collections import OrderedDict
 from datetime import datetime, timedelta
+from tqdm import tqdm
 
 measurement_id = sys.argv[1]
 base_path = sys.argv[2]
+start_year = int(sys.argv[3])
+start_month = int(sys.argv[4])
+start_day = int(sys.argv[5])
 
 json_path = os.path.join(base_path, '{}.json'.format(measurement_id))
 csv_path = os.path.join(base_path, '{}.csv'.format(measurement_id))
@@ -18,11 +22,11 @@ else:
     # create blank dict
     data = {}
 
-start = datetime(2020, 1, 1)
+start = datetime(start_year, start_month, start_day)
 
-n_days = (datetime.now() - start).days  # This is the number of days between today and 1st of Jan
+n_days = (datetime.now() - start).days  # This is the number of days between today and start date
 
-for _ in range(n_days):
+for _ in tqdm(range(n_days)):
 
     url = 'http://environment.data.gov.uk/flood-monitoring/archive/readings-{}.csv'.format(start.strftime('%Y-%m-%d'))
     r = requests.get(url)
