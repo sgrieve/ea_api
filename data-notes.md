@@ -45,6 +45,10 @@ Can grab this via the water quality API if we can identify all of the relevant s
 
 - Kate to outline water quality narrative
 
+Determinands to collect: 0076, 0077, 0085, 0117, 9901, 9924
+
+See the IGS in the MS Teams file section to see the names of all of the sample locations.
+
 ### Riverfly
 
 Seems to be data going back at least a decade for the River Chess. No API that I can see, but data is rarely updated? Can download all of the data to excel format from here: https://www.riverflies.org/open-data
