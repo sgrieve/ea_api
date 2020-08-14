@@ -9,8 +9,8 @@ units_LUT = {
 'http://environment.data.gov.uk/water-quality/def/units/0586': 'us/cm'
 }
 
-location_id = 'TH-PCNR0013'  # sys.argv[1]
-base_path = '/Users/stuart/ea_api/data'  # sys.argv[2]
+location_id = sys.argv[1]
+base_path = sys.argv[2]
 
 csv_path = os.path.join(base_path, '{}.csv'.format(location_id))
 
