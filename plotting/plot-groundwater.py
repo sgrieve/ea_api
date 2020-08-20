@@ -16,10 +16,10 @@ gw = pd.read_csv('../data/SP90_64-level-groundwater-i-1_h-mAOD.csv',
 
 gw_series=pd.Series(data=gw['measurement'].values, index=gw['date'])
 
-daily_gw = gw_series.groupby(gw_series.index.dayofyear).mean()
+daily_gw = gw_series.groupby(gw_series.index.date).mean()
 gw_days = sorted(list(set(gw_series.index.date)))
 
-daily_rain = rain_series.groupby(rain_series.index.dayofyear).sum()
+daily_rain = rain_series.groupby(rain_series.index.date).sum()
 rain_days = sorted(list(set(rain_series.index.date)))
 
 
