@@ -25,7 +25,8 @@ for row in r.text.splitlines():
     if 'Incomplete' in row:
         logging.warning('Incomplete data removed: {}'.format(row))
     else:
-        data.append(row)
+        s = row.split(',')
+        data.append(('{},{},{},{},{},{}'.format(s[0], s[1].strip('Z'), s[2], s[3], s[4], s[5])))
 
 if os.path.isfile(csv_path):
     # Back up previous data, overwriting previous backup
