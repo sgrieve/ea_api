@@ -1,28 +1,32 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
-import calendar
+import numpy as np
+from matplotlib.dates import DateFormatter
 from datetime import datetime
 
 dateparse = lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S')
 
-rain = pd.read_csv('../data/278744TP-rainfall-tipping_bucket_raingauge-t-15_min-mm.csv',
+rain = pd.read_csv('../data/rainfall_chenies.csv',
                     parse_dates=['date'], date_parser=dateparse)
 
-rain_series=pd.Series(data=rain['measurement'].values, index=rain['date'])
+rain_series = pd.Series(data=rain['measurement'].values, index=rain['date'])
 
-monthly_totals = rain_series.groupby(rain_series.index.month).sum()
+# Data has nans represented as ---
+rain_series = rain_series.replace('---', np.nan)
+rain_series = rain_series.astype(float)
 
-# Get month names (switch to month_abbr for month abbreviations)
-monthly_totals.index = [calendar.month_name[i] for i in monthly_totals.index]
+# M groups by month and S records the date as the start of the month, so each
+# monthly sum is stored as the first of the month
+monthly_totals = rain_series.groupby(pd.Grouper(freq="MS")).sum()
 
-ax = sns.barplot(x=monthly_totals.index, y=monthly_totals.values,
-                 saturation=0.8, color=sns.color_palette("Blues_d")[3])
+fig, ax = plt.subplots()
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+ax.bar(monthly_totals.index, monthly_totals.values, width=30,
+       color=sns.color_palette("Blues_d")[3])
 
-
-sns.despine()
 
 plt.xlabel('')
 plt.ylabel('Total Rainfall (mm)')
 
-plt.savefig('rainfall.png')
+plt.savefig('rainfall.pdf')
