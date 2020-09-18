@@ -40,7 +40,6 @@ ax.spines['left'].set_visible(False)
 
 ax = plt.subplot(3, 1, 2)
 
-
 gw_file = '../data/ashley-green-gw-data.csv'
 
 gw = pd.read_csv(gw_file, parse_dates=['date'], date_parser=dateparse)
