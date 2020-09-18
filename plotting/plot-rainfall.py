@@ -3,6 +3,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 from matplotlib.dates import DateFormatter
+import matplotlib.dates as mdates
 from datetime import datetime
 
 dateparse = lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S')
@@ -29,4 +30,4 @@ ax.bar(monthly_totals.index, monthly_totals.values, width=30,
 plt.xlabel('')
 plt.ylabel('Total Rainfall (mm)')
 
-plt.savefig('rainfall.pdf')
+plt.savefig('rainfall.png')
