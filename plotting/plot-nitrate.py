@@ -44,6 +44,7 @@ for i, det_file in enumerate(det_files, start=1):
     sns.lineplot(x=det_days, y=daily_det[det_days].values, label=title,
                  color=sns.color_palette("icefire", n_colors=20)[i**2])
 
-plt.legend()
-plt.tight_layout()
-plt.savefig('nitrate.png')
+    plt.legend(loc=1)
+    plt.ylim(2, 27)
+    plt.tight_layout()
+    plt.savefig('nitrate-{}.png'.format(i))
