@@ -1,6 +1,6 @@
 import fiona
 from shapely.geometry import mapping, Point, MultiPoint
-from OSGridConverter import grid2latlong
+import bng
 from fiona.crs import from_epsg
 
 def fix_flow(flow):
@@ -49,7 +49,7 @@ locations = {
     'site12':'SU 98481 99346'
     }
 
-with open('inter-data.csv') as f:
+with open('inter-data-thinned.csv') as f:
     header = f.readline()
     data = f.readlines()
 
@@ -61,7 +61,7 @@ schema = {
 }
 
 
-crs = from_epsg(4326)
+crs = from_epsg(27700)
 
 for row in data:
 
@@ -72,9 +72,9 @@ for row in data:
     with fiona.open('{}.shp'.format(date), 'w', 'ESRI Shapefile', schema, crs=crs) as c:
         for i, _ in enumerate(flows):
 
-            l = grid2latlong(locations[sites[i].strip()])
+            pt = bng.to_osgb36(locations[sites[i].strip()].replace(' ', ''))
 
             c.write({
-                'geometry': mapping(Point(l.longitude, l.latitude)),
+                'geometry': mapping(Point(pt)),
                 'properties': {'name': sites[i], 'flow': fix_flow(flows[i])},
             })
