@@ -1,3 +1,10 @@
 data/*
 data-kate/*
 *.png
+shapefiles/*-*-*.shp
+shapefiles/*-*-*.shx
+shapefiles/*-*-*.cpg
+shapefiles/*-*-*.dbf
+shapefiles/*-*-*.shp
+shapefiles/*-*-*.prj
+shapefiles/*-*-*.qpj
